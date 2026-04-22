@@ -80,11 +80,11 @@
 
     <div class="form-row">
       <label></label>
-      <input type="checkbox" id="showPassword"> パスワードを表示
+      <input type="checkbox"  name="chk_d_ps" id="showPassword"> パスワードを表示
     </div>
 
     <div class="submit-area">
-      <input type="button" value="ログイン">
+      <input type="button"  name="login" value="ログイン">
     </div>
 
   </form>
