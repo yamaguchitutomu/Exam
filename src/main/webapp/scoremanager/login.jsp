@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" %>
-<jsp:include page="../header.html" />
-<%@include file="main/menu.jsp" %>
+<jsp:include page="/header.jsp" />
+
 
 <!--  画面設計書寄りのcss ※完全一致ではない  -->
 <style>
@@ -101,4 +101,4 @@
   });
 </script>
 
-<jsp:include page="../footer.html" />
+<jsp:include page="/footer.html" />

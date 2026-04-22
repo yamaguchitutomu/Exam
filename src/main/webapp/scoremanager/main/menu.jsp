@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 
-<jsp:include page="../../header.html" />
+<jsp:include page="/header.jsp" />
+
 
 
 <!-- css -->
@@ -127,17 +128,17 @@
     <nav>
       <ul>
    
-        <li><a href="main/menu.jsp">メニュー</a></li>
+        <li><a href="menu.jsp">メニュー</a></li>
 
-        <li><a href="main/student_list.jsp">学生管理</a></li>
+        <li><a href="student_list.jsp">学生管理</a></li>
 
         <li class="label">成績管理</li>
         
-        <li class="child"><a href="main/test_regist.jsp">成績登録</a></li>
+        <li class="child"><a href="test_regist.jsp">成績登録</a></li>
         
-        <li class="child"><a href="main/test_list.jsp">成績参照</a></li>
+        <li class="child"><a href="test_list.jsp">成績参照</a></li>
         
-        <li><a href="main/subject_list.jsp">科目管理</a></li>
+        <li><a href="subject_list.jsp">科目管理</a></li>
         
       </ul>
     </nav>
@@ -153,7 +154,7 @@
     
     <div class="menu-block">
       <div class="title">
-        <a href="main/student_list.jsp">学生管理</a>
+        <a href="student_list.jsp">学生管理</a>
       </div>
     </div>
 
@@ -161,14 +162,14 @@
     <div class="menu-block">
       <div class="title2">成績管理</div>
       <div class="child-menu">
-        <a href="main/test_regist.jsp">成績登録</a>
-        <a href="main/test_list.jsp">成績参照</a>
+        <a href="test_regist.jsp">成績登録</a>
+        <a href="test_list.jsp">成績参照</a>
       </div>
     </div>
 
     <div class="menu-block">
       <div class="title">
-        <a href="main/subject_list.jsp">科目管理</a>
+        <a href="subject_list.jsp">科目管理</a>
       </div>
     </div>
 
@@ -179,4 +180,4 @@
 
 </div>
 
-<jsp:include page="../../footer.html" />
+<jsp:include page="/footer.html" />
