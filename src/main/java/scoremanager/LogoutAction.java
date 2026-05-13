@@ -10,13 +10,13 @@ public class LogoutAction extends Action {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-
+    	// セッションを取得  存在すれば無効化する
         HttpSession session = req.getSession(false);
         if (session != null) {
             session.invalidate();
         }
 
-        // ログイン画面へ戻る
-        resp.sendRedirect("Login.action");
+     // ログアウト完了画面へ遷移
+        req.getRequestDispatcher("/scoremanager/main/logout.jsp").forward(req, resp);
     }
 }

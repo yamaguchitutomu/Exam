@@ -1,183 +1,210 @@
-<%@page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:include page="/header.jsp"/>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	    <div class="container-fluid">
+	        <span class="navbar-brand fw-bold">得点管理システム</span>
+	        <div class="collapse navbar-collapse justify-content-end">
+	            <ul class="navbar-nav">
+	
+	                <li class="nav-item">
+	                    <a class="nav-link active" href="Menu.action">ホーム</a>
+	                </li>
+	
+	                <li class="nav-item">
+	                    <a class="nav-link" href="StudentList.action">学生管理</a>
+	                </li>
+	
+	                <li class="nav-item">
+	                    <a class="nav-link" href="TestList.action">成績管理</a>
+	                </li>
+	                
+	                <li class="nav-item">
+	                    <a class="nav-link" href="SubjectList.action">科目管理</a>
+	                </li>
+	
+	                <li class="nav-item">
+	                    <a class="nav-link" href="ClassList.action">クラス管理</a>
+	                </li>
+	                
+	                <li class="nav-item">
+	                    <a class="nav-link" href="TeacherList.action">ユーザ管理</a>
+	                </li>
+	
+	                
+	
+	                <!-- ▼ ログイン状態で表示切替 -->
+	                <c:choose>
+	                    <c:when test="${not empty loginUserName}">
+	                        <li class="nav-item">
+	                            <span class="nav-link text-white">ようこそ、${loginUserName} 様</span>
+	                        </li>
+	                        <li class="nav-item">
+	                            <a class="nav-link" href="Logout.action">ログアウト</a>
+	                        </li>
+	                    </c:when>
+	                    <c:otherwise>
+	                        <li class="nav-item">
+	                            <a class="nav-link" href="Login.action">ログイン</a>
+	                        </li>
+	                    </c:otherwise>
+	                </c:choose>
+	
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+	
+	<!-- ▼ ログアウト後メッセージ -->
+	<c:if test="${not empty logoutMessage}">
+	    <div class="alert alert-info text-center m-0">
+	        ${logoutMessage}
+	    </div>
+	</c:if>
 
-<jsp:include page="/header.jsp" />
+<!-- メインコンテンツ -->
+	<div class="container mt-4">
+	 <h2 class="h3 mb-4 bg-secondary bg-opacity-10 py-2 px-4">メインメニュー</h2>
+	
+	    <div class="row g-3 mb-4">
+	
+		
+		    <!-- ▼ 学生管理 -->
+		    <div class="col-md-4">
+			    <div class="card shadow-lg rounded-4 border-0 position-relative card-hover"
+			         style="background: linear-gradient(135deg, #bbdefb, #e3f2fd);">
+			
+			        <div class="card-body text-center py-4">
+			
+			            <div class="bg-primary bg-opacity-75 text-white rounded-circle d-inline-flex 
+			                        justify-content-center align-items-center mb-3"
+			                 style="width:70px; height:70px;">
+			                <i class="bi bi-people-fill fs-2"></i>
+			            </div>
+			
+			            <h5 class="fw-bold">学生管理</h5>
+			            <p class="text-muted">学生情報の一覧・登録</p>
+			
+			            <a href="StudentList.action" class="stretched-link"></a>
+			        </div>
+			    </div>
+			</div>
+		
+		
+		    <!-- ▼ 成績登録 -->
+		    <div class="col-md-4">
+			    <div class="card shadow-lg rounded-4 border-0 position-relative card-hover"
+			         style="background: linear-gradient(135deg, #bbdefb, #e3f2fd);">
+			
+			        <div class="card-body text-center py-4">
+			
+			            <div class="bg-primary bg-opacity-75 text-white rounded-circle d-inline-flex 
+			                        justify-content-center align-items-center mb-3"
+			                 style="width:70px; height:70px;">
+			                <i class="bi bi-pencil-square fs-2"></i>
+			            </div>
+			
+			            <h5 class="fw-bold">成績登録</h5>
+			            <p class="text-muted">学生の成績を登録</p>
+			
+			            <a href="TestRegist.action" class="stretched-link"></a>
+			        </div>
+			    </div>
+			</div>
+		
+		    <!-- ▼ 成績参照 -->
+		    <div class="col-md-4">
+			    <div class="card shadow-lg rounded-4 border-0 position-relative card-hover"
+			         style="background: linear-gradient(135deg, #bbdefb, #e3f2fd);">
+			
+			        <div class="card-body text-center py-4">
+			
+			            <div class="bg-primary bg-opacity-75 text-white rounded-circle d-inline-flex 
+			                        justify-content-center align-items-center mb-3"
+			                 style="width:70px; height:70px;">
+			                <i class="bi bi-clipboard-data fs-2"></i>
+			            </div>
+			
+			            <h5 class="fw-bold">成績参照</h5>
+			            <p class="text-muted">成績を検索・確認</p>
+			
+			            <a href="TestList.action" class="stretched-link"></a>
+			        </div>
+			    </div>
+			</div>
+		
+		
+		    <!-- ▼ 科目管理 -->
+		    <div class="col-md-4">
+			    <div class="card shadow-lg rounded-4 border-0 position-relative card-hover"
+			         style="background: linear-gradient(135deg, #bbdefb, #e3f2fd);">
+			
+			        <div class="card-body text-center py-4">
+			
+			            <div class="bg-primary bg-opacity-75 text-white rounded-circle d-inline-flex 
+			                        justify-content-center align-items-center mb-3"
+			                 style="width:70px; height:70px;">
+			                <i class="bi bi-book fs-2"></i>
+			            </div>
+			
+			            <h5 class="fw-bold">科目管理</h5>
+			            <p class="text-muted">科目一覧・登録・編集</p>
+			
+			            <a href="SubjectList.action" class="stretched-link"></a>
+			        </div>
+			    </div>
+			</div>
+		
+		
+		    <!-- ▼ クラス管理 -->
+		    <div class="col-md-4">
+			    <div class="card shadow-lg rounded-4 border-0 position-relative card-hover"
+			         style="background: linear-gradient(135deg, #bbdefb, #e3f2fd);">
+			
+			        <div class="card-body text-center py-4">
+			
+			            <div class="bg-primary bg-opacity-75 text-white rounded-circle d-inline-flex 
+			                        justify-content-center align-items-center mb-3"
+			                 style="width:70px; height:70px;">
+			                <i class="bi bi-building fs-2"></i>
+			            </div>
+			
+			            <h5 class="fw-bold">クラス管理</h5>
+			            <p class="text-muted">クラス情報の一覧・追加</p>
+			
+			            <a href="ClassList.action" class="stretched-link"></a>
+			        </div>
+			    </div>
+			</div>
+		
+		
+		    <!-- ▼ ユーザ管理 -->
+		    <div class="col-md-4">
+			    <div class="card shadow-lg rounded-4 border-0 position-relative card-hover"
+			         style="background: linear-gradient(135deg, #bbdefb, #e3f2fd);">
+			
+			        <div class="card-body text-center py-4">
+			
+			            <div class="bg-primary bg-opacity-75 text-white rounded-circle d-inline-flex 
+			                        justify-content-center align-items-center mb-3"
+			                 style="width:70px; height:70px;">
+			                <i class="bi bi-person-gear fs-2"></i>
+			            </div>
+			
+			            <h5 class="fw-bold">ユーザ管理</h5>
+			            <p class="text-muted">ユーザ一覧・追加・編集</p>
+			
+			            <a href="TeacherList.action" class="stretched-link"></a>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</body>
+<jsp:include page="/footer.jsp"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
-<!-- css -->
-<style>
-  body {
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-  }
 
-  .layout {
-    display: flex;
-    min-height: 100vh;
-  }
-
-  /* --- サイドバー（白背景＋青リンク） --- */
-.sidebar {
-  width: 180px;
-  background-color: #ffffff;
-  border-right: 1px solid #ccc;
-  height: 100vh;
-  padding: 20px 10px;
-  margin-left: 100px;
-  box-sizing: border-box;
-}
-
-.sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar li {
-  margin: 0;
-  padding: 0;
-}
-
-/* リンク（青文字） */
-.sidebar a {
-  display: block;
-  margin: 12px 0;
-  color: #0070c0;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
-}
-
-/* 成績管理  分類:label 種別:li (アイテムリスト) */
-.sidebar li.label {
-  color: #000001;
-  background-color: #ffffff;
-  font-weight: normal;
-  cursor: default;
-}
-
-.sidebar li.child {
-  padding-left: 15px;
-}
-
-  
-  /* --- メイン --- */
-.main-menu {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  margin-left: 10px;
-}
-
-.menu-block {
-  width: 200px;
-  padding: 15px;
-  border: 1px solid #000; 
-  background-color: #fff;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.menu-block .title {
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-
-.menu-block .title a {
-  color: #0070c0; 
-  text-decoration: none;
-}
-
-.menu-block .title2 a {
-  color: #000001; 
-  text-decoration: none;
-}
-
-.menu-block .title a:hover {
-  text-decoration: underline;
-}
-
-/* 子（成績登録・成績参照） */
-.child-menu a {
-  display: block;
-  color: #0070c0;
-  text-decoration: none;
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-.child-menu a:hover {
-  text-decoration: underline;
-}
-
-</style>
-
-      <!-- メニュー , 学生管理 , 成績登録 , 成績参照 , 科目管理 は
-      		分類: link  種別: a 　によりリンクの表示               -->
-      
-      <!-- 成績管理だけ　分類: label 　種別: li -->
-
-<div class="layout">
-
-  <!-- ▼ サイドバー -->
-  <aside class="sidebar">
-    <nav>
-      <ul>
-   
-        <li><a href="menu.jsp">メニュー</a></li>
-
-        <li><a href="student_list.jsp">学生管理</a></li>
-
-        <li class="label">成績管理</li>
-        
-        <li class="child"><a href="test_regist.jsp">成績登録</a></li>
-        
-        <li class="child"><a href="test_list.jsp">成績参照</a></li>
-        
-        <li><a href="subject_list.jsp">科目管理</a></li>
-        
-      </ul>
-    </nav>
-  </aside>
-
-  <!-- メイン -->
-<main class="main">
-
-  <h2>メニュー</h2>
-
-  <div class="main-menu">
-
-    
-    <div class="menu-block">
-      <div class="title">
-        <a href="student_list.jsp">学生管理</a>
-      </div>
-    </div>
-
-    <!-- 親 (成績管理) 子 (成績登録　, 成績参照) -->
-    <div class="menu-block">
-      <div class="title2">成績管理</div>
-      <div class="child-menu">
-        <a href="test_regist.jsp">成績登録</a>
-        <a href="test_list.jsp">成績参照</a>
-      </div>
-    </div>
-
-    <div class="menu-block">
-      <div class="title">
-        <a href="subject_list.jsp">科目管理</a>
-      </div>
-    </div>
-
-  </div>
-
-</main>
-
-
-</div>
-
-<jsp:include page="/footer.html" />
