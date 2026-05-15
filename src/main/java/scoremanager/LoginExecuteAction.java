@@ -43,6 +43,8 @@ public class LoginExecuteAction extends Action {
                 request.getRequestDispatcher("login.jsp").forward(request, response);
                 return;
             }
+            teacher.setAuthenticated(true);
+            
 
             // 3. セッション管理
             HttpSession session = request.getSession();
